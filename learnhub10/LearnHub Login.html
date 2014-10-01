@@ -1,0 +1,75 @@
+<?php ob_start(); ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link rel="shortcut icon" type="image/vnd.microsoft.icon" href="http://www.flat-stomach-exercises.com/favicon.ico" />
+
+<title>LearnHub</title>
+<META Name="Description" Content="description" />
+<META Name="Keywords" Content="keywords separated by commas"/>
+<link rel="Shortcut Icon" href="/favicon.ico" />
+<link href="../Sen Project/Login/style.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" type="text/css" />)
+</head>
+<body> 
+
+<div id="container">
+
+<div id="header"></div>
+
+<div id="leftnav">
+	<h1 align="center">
+		<strong> Here we have to input the list of available courses on our website along with a search bar</strong>
+	</h1>
+</div>
+
+<div id="content">
+	<h1 align= "center">Login / Sign Up</h1>
+		<br />
+		<?php 
+		  if(isset(_POST['user'])
+		  {
+		  echo "login invalid".
+		  //header("Location: jj.php");
+		  }
+		  
+		  ?>
+		 <form name="login" action="login.php" method="post">
+        	<p align="center">
+   			<strong>Username:</strong>
+   			<input type="text" name="user" title="text input sample"><br>
+ 		<br />
+ 		<br />
+ 			<strong>Password:</strong>
+ 			<input type="password" name="pass" title="pwd sample"><br>
+ 		<br />
+ 		<br />
+ 			<input type="submit" value="Send"> <input type="reset">
+			</form>
+ 		<br />
+ 		<br />
+ 			<input type="submit" value="Forgot-Password">
+ 		<br />
+ 		<br />
+ 			<input type="submit" value="Sign-Up">
+      
+</div>
+
+<div id="Prezi">
+<h1> Here the Prezi will be displayed </h1>
+</div>
+
+<div align="center" id="footer">
+<p>This is the footer section. To edit the colors, font style, etc. Edit the &quot;footer&quot; section in style.css</p>
+<p class="smalltext">&copy; 2008 Your copyright notice </p>
+<p class="smalltext">(The size of the copyright notice is controlled by &quot;smalltext&quot; in the style sheet.)</p>
+</div>
+</div>
+
+</body>
+</html>
+
+<?php ob_end_flush(); ?>
+  
+  

@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>User Registration</title>
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title> LearnHub Registration</title>
+<?php
+if(isset($_POST['username']))
+{
+$con=mysql_connect("localhost","root","");
+if (!$con)
+  {
+  die('Could not connect to the database: ' . mysql_error());
+  }
+
+mysql_select_db("learhub", $con);
+
+$query='SELECT userid FROM user';
+	$result=mysql_query($query);
+	
+	while($row=mysql_fetch_array($result))
+	{
+		if($id==$row['userid'])
+		{
+			$id=rand(1,999999);
+		    $result=mysql_query($query);
+		}
+	}
+
+$sql="INSERT INTO user (userid,username, password, firstname, lastname, user_address, city, state, country, pincode, email, areacode, telephone, accountid, balance)
+values ($id,'$_POST[username]', md5('$_POST[password]'),'$_POST[fname]', '$_POST[lname]', '$_POST[addr]', '$_POST[city]', '$_POST[state]', '$_POST[country]', '$_POST[pcode]', '$_POST[email]', '$_POST[acode]', '$_POST[phno]', '$_POST[ano]', 0,'$_POST[sec_ques]','$_POST[sec_ans]')";
+
+if (!mysql_query($sql,$con))
+  {
+  die('Error: ' . mysql_error());
+  }
+echo "1 record added";
+
+mysql_close($con)
+}
+?> 
+    
+
+
+<script type="text/javascript" src="_js/userval.js"> 
+</script>
+
+</head>
+<body>
+<div>
+<form name="userform" method="post" action="user_reg.php" onsubmit="return checkForm(userform)">
+<fieldset style="-moz-border-radius: 10px; 
+            -webkit-border-radius: 10px;
+            border-radius: 10px; 
+            padding: 10px;
+            "><legend align="center" style="font-family:Verdana, Geneva, sans-serif; color: blue">User Registration</legend>
+<pre style="font-family: Verdana, Arial, sans serif;"> 
+Username:*     		<input type="text" name="username" /><br />
+Password:*     		<input type="password" name="password" /><br />
+Confirm Password:* 	<input type="password" name="cpassword" /><br />
+Security Question:*	<input type="text" name="sec_ques" /><br />
+Security Answer:*s	<input type="text" name="sec_ans" /><br />
+First Name:*   		<input type="text" name="fname" /><br />
+Last Name:*    		<input type="text" name="lname" /><br />
+Address: 			<input type="text" name="addr" size="40" /><br />
+			 	<input type="text" name="addr" size="40" /><br />
+City: 				<input type="text" name="city" /><br />
+State:			<input type="text" name="state" /><br />
+Country:			<input type="text" name="country" /><br />
+Pincode:			<input type="text" name="pcode" /><br />
+E-mail:*			<input type="text" name="email" /><br />
+Telephone:			<input type="text" name="acode" size="5"/>-<input type="text" name="phno" /><br />
+Account Number:		<input type="text" name="ano" /><br />
+				<input type="submit" value="Submit" />  <input type="reset" value="Reset"/>
+</pre>
+</fieldset>
+<p style="color: red; font-family:Verdana, Geneva, sans-serif; font-size:12px">* marked are mandatory</p>
+</form>
+</div>
+</body>
+
+</html>
